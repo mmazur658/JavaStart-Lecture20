@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<title>Dodawanie produktu</title>
+</head>
+<body>
+	<div class="container mt-4">
+
+		<p class="h3 text-muted">Dodawanie nowego produktu</p>
+		<hr>
+		
+		<form action="/addProduct" method="post">
+			<div class="form-group">
+				<label for="productNameInput">Email address</label>
+				 <input	name="name" type="text" class="form-control" id="productNameInput" placeholder="Nazwa produktu">
+			</div>
+			<div class="form-group">
+				<label for="priceInput">Cena</label> 
+				<input name="price" type="number" step="0.01" class="form-control" id="priceInput" placeholder="Cena">
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<button type="submit" class="btn btn-block btn-secondary">Wyślij</button>
+				</div>
+				<div class="col-md-6">
+					<button type="reset" class="btn btn-block btn-secondary">Wyczyść</button>
+				</div>
+			</div>
+
+		</form>
+		
+		<div th:if="${messageStatus == 'success'}" class="alert alert-success my-3" role="alert">
+			<p class="h5 text-center" th:text="${messageText}"></p>
+		</div>
+		<div th:if="${messageStatus == 'danger'}" class="alert alert-danger my-3" role="alert">
+			<p class="h5 text-center" th:text="${messageText}"></p>
+		</div>
+
+	<div class="row mt-5">
+		<div class="col-md-4">
+			<a href="/tabela" class="btn btn-block btn-secondary btn-sm my-1">Pokaż tablicę produktów</a>
+		</div>
+	</div>
+		<div class="row">
+		<div class="col-md-4">
+			<a href="/lista" class="btn btn-block btn-secondary btn-sm my-1">Pokaż listę produktów</a>
+		</div>
+	</div>
+
+
+	</div>
+
+	
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Lista produktów</title>
+</head>
+<body>
+	<div class="container mt-5">
+	
+		<p class="h3 text-muted">Lista produktów</p>
+		<hr>
+		<ol class="h5 text-muted">
+			<li th:each="product: ${products}" >
+				<!-- th:text="|${product.name} ${product.price}|"> -->
+				<p class="panel-footer">
+					<span th:text="${product.name}"></span>
+					<span th:text="|${product.price} zł|" class="float-right"></span>
+				</p>
+			</li>
+		</ol>
+		<hr>
+		<p class="h4 text-muted">Razem: <span th:text="|${sum} zł|" class="float-right"></span></p>
+			
+	</div>
+			
+
+</body>
+</html>
